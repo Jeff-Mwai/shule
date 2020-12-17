@@ -26,8 +26,7 @@ class AssignmentSerializer(serializers.ModelSerializer):
         fields = ['file','description','current_class']
 
     def create(self, validate_data):
-        print('test')
-        user = User.object.filter(id=5).first()
+        user = User.object.filter(id=2).first()
         assignment = Assignment(**validate_data)
         assignment.user = user
         assignment.save()
@@ -41,7 +40,7 @@ class FeeSerializer(serializers.ModelSerializer):
         exclude = ['user']
 
     def create(self, validate_data):
-        user = User.object.filter(id=5).first()
+        user = User.object.filter(id=2).first()
         fee = Fee(**validate_data)
         fee.user = user
         fee.save()
